@@ -9,8 +9,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var firstName: String = ""
+    @State private var lastName: String = ""
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            TextField("First Name", text: $firstName)
+                .frame(height: 45, alignment: .center)
+                .multilineTextAlignment(.center)
+                .accessibility(identifier: "firstName")
+            TextField("Last Name", text: $lastName)
+                .frame(height: 45, alignment: .center)
+            .multilineTextAlignment(.center)
+            .accessibility(identifier: "lastName")
+            Text("Your complete name is: \(firstName) \(lastName)")
+            .accessibility(identifier: "completeName")
+        }.padding()
+        
     }
 }
 
