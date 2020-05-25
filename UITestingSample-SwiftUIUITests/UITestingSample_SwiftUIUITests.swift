@@ -11,10 +11,11 @@ import Combine
 import SwiftUI
 
 class UITestingSample_SwiftUIUITests: XCTestCase {
-    let app = XCUIApplication()
+    private var app: XCUIApplication!
     override func setUpWithError() throws {
-        app.launch()
         continueAfterFailure = false
+        app = XCUIApplication()
+        app.launch()
     }
 
     override func tearDownWithError() throws {
